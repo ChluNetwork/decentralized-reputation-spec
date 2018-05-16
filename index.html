@@ -588,7 +588,8 @@ The Verifiable Claims data model specification provides the association mechanis
         <tr>
           <th>Property</th>
           <th>Description</th>
-          <th>Status</th>
+          <th>Data Type</th>
+          <th>Required</th>
         </tr>
       </thead>
 
@@ -601,7 +602,10 @@ The Verifiable Claims data model specification provides the association mechanis
             DID associated with the recipient of the review.
           </td>
           <td>
-            Optional
+            String in the DID ID format
+          </td>
+          <td>
+            No
           </td>
         </tr>
         <tr>
@@ -612,7 +616,10 @@ The Verifiable Claims data model specification provides the association mechanis
             DID associated with the provider of the review.
           </td>
           <td>
-            Optional
+            String in the DID ID format
+          </td>
+          <td>
+            No
           </td>
         </tr>
         <tr>
@@ -623,7 +630,10 @@ The Verifiable Claims data model specification provides the association mechanis
             Platform on which the review orginated
           </td>
           <td>
-            Required
+            URL
+          </td>
+          <td>
+            Yes
           </td>
         </tr>
         <tr>
@@ -634,7 +644,10 @@ The Verifiable Claims data model specification provides the association mechanis
             When the review was created
           </td>
           <td>
-            Required
+            Timestamp
+          </td>
+          <td>
+            Yes
           </td>
         </tr>
         <tr>
@@ -645,7 +658,10 @@ The Verifiable Claims data model specification provides the association mechanis
             Score on a normalized 5 point scale
           </td>
           <td>
-            Required
+            Int
+          </td>
+          <td>
+            Yes
           </td>
         </tr>
         <tr>
@@ -656,9 +672,41 @@ The Verifiable Claims data model specification provides the association mechanis
             Text overview of the review
           </td>
           <td>
-            Optional
+            String
+          </td>
+          <td>
+            No
           </td>
         </tr>
+        <tr>
+          <td>
+            Verifiable
+          </td>
+          <td>
+            Is this rating/review verifiable by at least one spec accepted method.
+          </td>
+          <td>
+            Boolean
+          </td>
+          <td>
+            Yes
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Verifiable Method
+          </td>
+          <td>
+            Is this rating/review verifiable by at least one method.
+          </td>
+          <td>
+            List of proof types and proof sources
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+
       </tbody>
     </table>
 
