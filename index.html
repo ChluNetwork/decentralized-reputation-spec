@@ -577,8 +577,92 @@ The Verifiable Claims data model specification provides the association mechanis
     <h3>Decentralized Reptuation Normalization</h3>
     <p>
     For the broadest interoperability, Decentralized Reputation normalization should be as simple
-    and universal as possible. TO BE COMPLETED
+    and universal as possible. This section summarizes the properties associated with the normalized Decentralized Reputation specification, designed to standardize and simplify the way decentralized reputation is rendered online.
     </p>
+    <p>
+    The specification builds on the Review work outlined in this area on <a href="http://schema.org/Review">Schema.org</a>
+    </p>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Description</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            Reviewee
+          </td>
+          <td>
+            DID associated with the recipient of the review.
+          </td>
+          <td>
+            Optional
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Reviewer
+          </td>
+          <td>
+            DID associated with the provider of the review.
+          </td>
+          <td>
+            Optional
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Source Platform
+          </td>
+          <td>
+            Platform on which the review orginated
+          </td>
+          <td>
+            Required
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Time
+          </td>
+          <td>
+            When the review was created
+          </td>
+          <td>
+            Required
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rating
+          </td>
+          <td>
+            Score on a normalized 5 point scale
+          </td>
+          <td>
+            Required
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Review
+          </td>
+          <td>
+            Text overview of the review
+          </td>
+          <td>
+            Optional
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
   </section>
   <section>
     <h3>Simple Examples</h3>
