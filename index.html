@@ -165,12 +165,13 @@ This complexity means there is no simple solve, and associated well known resear
 <p>
 Decentralized Reputation approaches the problem by creating an open extensible standard, enabling different forms of proofs of verifiability to be associated with a specific rating and review.
 Verifiability is not a hard requirement for every rating and review in Decentralized Reputation, but in the case when it is, the method or methods of verifiability are listed.
-Current forms of verifiable proof include:
+Current forms of or weightings towards verifiable review proof include:
 
 <ul>
-  <li>Proof by payment</li>
-  <li>Proof by text analysis</li>
-  <li>Proof by location</li>
+  <li>Proof by confirmed payment</li>
+  <li>Proof by payment amount</li>
+  <li>Proof by review text analysis</li>
+  <li>Proof by reviewer location</li>
   <li>Proof by reviewer historical reputation</li>
   <li>Proof by reviewee historical reputation</li>
   <li>Proof by community consensus</li>
@@ -398,7 +399,8 @@ The Verifiable Claims data model specification provides the association mechanis
 <h1>Core Specification Requirements</h1>
 <p>Decentralized Ownership, Portability and Verifiability are core elements of the Decentralized Reputation Specification</p>
 <h2>Decentralized Reputation Ownership</h2>
-  <p>Decentralized Reputation leverages the <a href="https://w3c-ccg.github.io/did-spec/">Decentralized Identifier</a> or DID specification and the associated <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a> model to move Reptutation ownership from large platforms to the actual reputation owner.</p>
+  <p>Decentralized Reputation leverages the <a href="https://w3c-ccg.github.io/did-spec/">Decentralized Identifier</a> or DID specification and the associated <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a> model to move reptutation ownership from centralized large platforms to the reputation recipient.
+  Rather than focusing on building a new decentralized identity mechanism, the DR specification leverages the current defacto decentralized identity management system today - the DID model. However, in the future, additional identity management systems may be added.</p>
   <section>
     <h3>Decentralized Reptuation and DIDs</h3>
     <p>To be COMPLETED</p>
@@ -417,10 +419,10 @@ The Verifiable Claims data model specification provides the association mechanis
 
 <section>
   <h2>Decentralized Reputation Portability</h2>
-  <p>Decentralized Reputation leverages the Decentralized Storage and normalized ratings and reviews to facilitate reputation portability.</p>
+  <p>Decentralized Reputation leverages decentralized storage to ensure [FOR DISCUSSION WITH KULPREET] and normalized ratings and reviews to facilitate reputation portability.</p>
   <section>
     <h3>Decentralized Reptuation Storage</h3>
-    <p>To be COMPLETED</p>
+    <p>To be COMPLETED...provide options - eg, IPFS, Blockchain, etc</p>
   </section>
   <section>
     <h3>Decentralized Reptuation Normalization</h3>
