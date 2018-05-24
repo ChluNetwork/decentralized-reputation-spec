@@ -419,7 +419,7 @@ The Verifiable Claims data model specification provides the association mechanis
 
 <section>
   <h2>Decentralized Reputation Portability</h2>
-  <p>Decentralized Reputation leverages decentralized storage to ensure [FOR DISCUSSION WITH KULPREET] and normalized ratings and reviews to facilitate reputation portability.</p>
+  <p>Decentralized Reputation leverages decentralized storage and normalized ratings and reviews to facilitate reputation portability.</p>
   <section>
     <h3>Decentralized Reptuation Storage</h3>
     <p>To be COMPLETED...provide options - eg, IPFS, Blockchain, etc</p>
@@ -545,13 +545,13 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Time
+            Date Created
           </td>
           <td>
             When the review was created
           </td>
           <td>
-            Timestamp
+            <a href="http://www.schema.org/Date">Date</a> or <a href="http://www.schema.org/DateTime">Date Time</a>
           </td>
           <td>
             Yes
@@ -559,13 +559,13 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Rating
+            ReviewRating
           </td>
           <td>
             Score on a normalized 5 point scale
           </td>
           <td>
-            Int
+            <a href="http://www.schema.org/ReviewRating">ReviewRating</a>
           </td>
           <td>
             Yes
@@ -573,13 +573,13 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Review
+            Review Body
           </td>
           <td>
             Text overview of the review
           </td>
           <td>
-            String
+            <a href="http://www.schema.org/ReviewRating">ReviewBody</a>
           </td>
           <td>
             No
