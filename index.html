@@ -422,7 +422,10 @@ The Verifiable Claims data model specification provides the association mechanis
   <p>Decentralized Reputation leverages decentralized storage and normalized ratings and reviews to facilitate reputation portability.</p>
   <section>
     <h3>Decentralized Reptuation Storage</h3>
-    <p>To be COMPLETED...provide options - eg, IPFS, Blockchain, etc</p>
+    <p>Decentralized storage should eliminate the requirement for centralized authorities or single points of failure in reputation
+    storage, including, but not limited to, the creation, editing and deletion of conforming decentralized reputation instances and associated metadata. In addition, decentralized storage should facilitate automatic encryption and replication of reputation data.
+    All candidate implementation systems of Decentralized Reputation should provide decentralized storage implementations that deliver these requirements.
+    Potential example decentralized storage implementation technologies could include, but are not limited to, <a href="https://en.wikipedia.org/wiki/Distributed_ledger">Distributed Ledger Technologies</a>, encrypted <a href="https://en.wikipedia.org/wiki/Clustered_file_system#Distributed_file_systems">distributed file systems</a> such as <a href="https://en.wikipedia.org/wiki/InterPlanetary_File_System">IPFS</a> etc</p>
   </section>
   <section>
     <h3>Decentralized Reptuation Normalization</h3>
@@ -431,7 +434,7 @@ The Verifiable Claims data model specification provides the association mechanis
     and universal as possible. This section summarizes the properties associated with the normalized Decentralized Reputation specification, designed to standardize and simplify the way decentralized reputation is rendered online.
     </p>
     <p>
-    The specification builds on the Review work outlined in this area on <a href="http://schema.org/Review">Schema.org</a>
+    The specification builds on the <a href="http://schema.org/Review">Review</a> work outlined in this area on Schema.org. The following fields are fields in addition to those listed in <a href="http://schema.org/Review">Review</a> object or where the property requirement types are created.
     </p>
 
     <table class="simple">
@@ -503,6 +506,20 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
+            Review
+          </td>
+          <td>
+            The review object.
+          </td>
+          <td>
+            <a href="http://schema.org/Review">Review</a>
+          </td>
+          <td>
+            Yes
+          </td>
+        </tr>
+        <tr>
+          <td>
             Reviewee Category
           </td>
           <td>
@@ -551,7 +568,7 @@ The Verifiable Claims data model specification provides the association mechanis
             When the review was created
           </td>
           <td>
-            <a href="http://www.schema.org/Date">Date</a> or <a href="http://www.schema.org/DateTime">Date Time</a>
+            <a href="http://schema.org/Date">Date</a> or <a href="http://schema.org/DateTime">Date Time</a>
           </td>
           <td>
             Yes
@@ -559,13 +576,13 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            ReviewRating
+            reviewRating
           </td>
           <td>
             Score on a normalized 5 point scale
           </td>
           <td>
-            <a href="http://www.schema.org/ReviewRating">ReviewRating</a>
+            <a href="http://schema.org/reviewRating">reviewRating</a>
           </td>
           <td>
             Yes
@@ -579,7 +596,7 @@ The Verifiable Claims data model specification provides the association mechanis
             Text overview of the review
           </td>
           <td>
-            <a href="http://www.schema.org/ReviewRating">ReviewBody</a>
+            <a href="http://schema.org/reviewBody">ReviewBody</a>
           </td>
           <td>
             No
