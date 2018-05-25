@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Decentralized Reputation (DR) v0.1</title>
+    <title>Decentralized Ratings & Reviews (DR) v0.1</title>
     <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
     <!--
       === NOTA BENE ===
@@ -19,7 +19,7 @@
         // the specification's short name, as in http://www.w3.org/TR/short-name/
         shortName: "dr",
         // subtitle
-        subtitle: "Data Model and Syntaxes for Decentralized Reputation (DRs)",
+        subtitle: "Data Model and Syntaxes for Decentralized Ratings & Reviews (DRs)",
         // if you wish the publication date to be other than today, set this
         // publishDate:  "2009-08-06",
         // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
@@ -28,10 +28,10 @@
         // previousMaturity:  "WD",
         // extend the bibliography entries
         localBiblio: ccg.localBiblio,
-        github: "https://github.com/ChluNetwork/decentralized-reputation-spec",
+        github: "https://github.com/ChluNetwork/decentralized-Ratings & Reviews-spec",
         includePermalinks: false,
         // if there a publicly available Editor's Draft, this is the link
-        // edDraftURI: "https://github.com/ChluNetwork/decentralized-reputation-spec",
+        // edDraftURI: "https://github.com/ChluNetwork/decentralized-Ratings & Reviews-spec",
         // if this is a LCWD, uncomment and set the end of its review period
         // lcEnd: "2009-08-05",
         // editors, add as many as you like
@@ -72,28 +72,28 @@
   <body>
     <section id='abstract'>
       <p>
-Decentralized Reputation (DR) is a new standard for reputation (ratings and reviews) ownership, portability and verifiabilit online.
-Decentralized Reputation takes online ratings and reviews into the full control of the reputation owner enabling them to leverage their online reputation across any supporting online platform.
-Decentralized Reputation leverages the <a href="https://w3c-ccg.github.io/did-spec/">Decentralized Identifier</a> or DID specification and the associated <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a> model.
-As such, DR is independent from any centralized registry or authority.
+Decentralized Ratings & Reviews (DRR) is a new standard for Ratings & Reviews ownership, portability and verifiabilit online.
+Decentralized Ratings & Reviews takes online ratings and reviews into the full control of the Ratings & Reviews owner enabling them to leverage their online Ratings & Reviews across any supporting platform.
+Decentralized Ratings & Reviews leverages the <a href="https://w3c-ccg.github.io/did-spec/">Decentralized Identifier</a> or DID specification and the associated <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a> model.
+As such, DRR is independent from any centralized registry or authority.
 </p>
 <p>
-Decentralized Reputation consists of at least two things: A <a href="https://w3c-ccg.github.io/did-spec/">DID</a> which is the subject/owner of the reputation (e.g. an individual or a business) plus
+Decentralized Ratings & Reviews consists of at least two things: A <a href="https://w3c-ccg.github.io/did-spec/">DID</a> which is the subject/owner of the Ratings & Reviews (e.g. an individual or a business) plus
 a list of zero or more ratings and reviews that conform to the specification of this document. Each rating and review provides following key information:
 <ul>
     <li>the source of the rating and review - ie, the service on which the rating and review originated.</li>
-    <li>a proof of verifiability, if one is available, and if so, the method of verification - eg, is there traceability of the associated payment history. </li>
+    <li>a proof of verifiability, if one is available, and if so, the method of verification - eg, is there traceability of the associated payment history.</li>
 </ul>
       </p>
       <p>
-This document specifies a common data model, format, and operations that all Decentralized Reputation implementations support.
+This document specifies a common data model, format, and operations that all Decentralized Ratings & Reviews implementations support.
       </p>
     </section>
 
 <section id='sotd'>
 <p>
 Comments regarding this document are welcome. Please file issues
-directly on <a href="https://github.com/ChluNetwork/decentralized-reputation-spec/issues/">GitHub</a>,
+directly on <a href="https://github.com/ChluNetwork/decentralized-Ratings & Reviews-spec/issues/">GitHub</a>,
 or send them to
 <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
 (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
@@ -113,28 +113,28 @@ Work on this specification has also been supported by...
 <h2>Overview</h2>
 
 <p>
-Online reputation is often a critical factor to commercial success in today's economy. Understanding this, companies and individuals spend significant amounts of time and effort building up their reputation, primarily in the form of ratings and reviews, on large online platforms.
-The emergence of blockchain or distributed ledger technology (DLT), enables decentralized reputation systems that can address three major problems with current online reputation systems.
+Online Ratings & Reviews are often a critical factor to digital commercial success in today's economy. Understanding this, companies and individuals spend significant amounts of time and effort building up their Ratings & Reviews on large online platforms.
+The emergence of blockchain or distributed ledger technology (DLT), enables decentralized Ratings & Reviews systems that can address three major problems with current systems.
 
 <p>
-<b>Reputation Ownership</b>
+<b>Ratings & Reviews Ownership</b>
 </p>
 <p>
-Given the importance of reputation to the commercial success of businesses and individuals online, in addition to the recent highly publicized <a href="https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal">data ownership scandals</a> and the advent of the European <a href="https://www.eugdpr.org">GDPR legislation</a> aimed to address online data ownership rights, the need to address the flaws in current online reputation ownership is clear.
-Decentralized Reputation takes the ownership of reputation data out of the pervue of large walled gardened platforms and places it squarely in the control of the reputation recipient.
+Given the importance of Ratings & Reviews to the commercial success of businesses and individuals online, in addition to the recent highly publicized <a href="https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal">data ownership scandals</a> and the advent of the European <a href="https://www.eugdpr.org">GDPR legislation</a> aimed to address online data ownership rights, the need to address the flaws in current online Ratings & Reviews ownership is clear.
+Decentralized Ratings & Reviews takes the ownership of Ratings & Reviews data out of the pervue of large walled gardened platforms and places it squarely in the control of the Ratings & Reviews recipient.
 </p>
 <p>
-Decentralized Reputation solves the ownership issue by leveraging <a href="https://w3c-ccg.github.io/did-spec">Decentralised Identifiers</a>, also known as DIDs. With Decentralized Reputation, the reputation owner or subject is the DID and the associated ratings and reviews are linked to the DID as instances of <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a>.
+Decentralized Ratings & Reviews solves the ownership issue by leveraging <a href="https://w3c-ccg.github.io/did-spec">Decentralised Identifiers</a>, also known as DIDs. With Decentralized Ratings & Reviews, the Ratings & Reviews owner or subject is the DID and the associated ratings and reviews are linked to the DID as instances of <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a>.
 </p>
 <p>
-<b>Reputation Portability</b>
+<b>Ratings & Reviews Portability</b>
 </p>
 <p>
-While online reputation is a key commercial factor on the web, ease of reputation portability is effectively non-existant today.
-Online reputation portability is a well documented, sizeable problem as <a href="https://medium.com/doteveryone/exploring-portable-ratings-for-gig-workers-5632fd9b262e">recently stated</a> by <a href="https://doteveryone.org.uk">DotEveryone</a>, the London based, fairer internet think tank, by <a href="https://www.wired.com/story/how-to-fix-ratings-in-the-gig-economy/">Wired magazine</a> and also by the <a href="https://www.ft.com/content/a72f7e56-3724-11e8-8b98-2f31af407cc8">Financial Times</a> amongst others.
+While online Ratings & Reviews is a key commercial factor on the web, ease of Ratings & Reviews portability is effectively non-existant today.
+Online Ratings & Reviews portability is a well documented, sizeable problem as <a href="https://medium.com/doteveryone/exploring-portable-ratings-for-gig-workers-5632fd9b262e">recently stated</a> by <a href="https://doteveryone.org.uk">DotEveryone</a>, the London based, fairer internet think tank, by <a href="https://www.wired.com/story/how-to-fix-ratings-in-the-gig-economy/">Wired magazine</a> and also by the <a href="https://www.ft.com/content/a72f7e56-3724-11e8-8b98-2f31af407cc8">Financial Times</a> amongst others.
 </p>
 <p>
-The need for reputation portability is an explicit recommendation of <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/627671/good-work-taylor-review-modern-working-practices-rg.pdf">the 2017 'Taylor Report'</a>, an independent assessment of the UK economy commissioned by the UK government, where it specifically states:
+The need for Ratings & Reviews portability is an explicit recommendation of <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/627671/good-work-taylor-review-modern-working-practices-rg.pdf">the 2017 'Taylor Report'</a>, an independent assessment of the UK economy commissioned by the UK government, where it specifically states:
 </p>
 <p>
 <em>Government should strongly encourage gig platforms to enable individuals to be able to carry their verified approval ratings with them when they move from the platform and to share them with third parties.
@@ -144,14 +144,14 @@ The need for reputation portability is an explicit recommendation of <a href="ht
 In addition to the Taylor Report, broader pan European legislation dealing with digital data ownership for EU citizens known as the General Data Protection Regulation or GDPR, which becomes effective on the 25th of May 2018, has a specific article focused on ensuring companies enable <a href="https://www.i-scoop.eu/gdprarticle/gdpr-article-20-right-data-portability/">digital data portability</a> for EU citizens.
 </p>
 <p>
-To solve the Reputation data portability issue this specification outlines three core items that must be addressed by Decentralized Reputation systems - Ownership, Portability and Verifiability.
-In addition, Decentralized Reputation implementations should be <a href="#permissionless">Permissionless</a>, offer <a href="#decentralizedstorage">Decentralized Storage</a> and conform to the <a href="#datamodel">Decentralized Reputation Data Model</a> outlined in this specification. The Decentralized Reputation Data Model normalizes the ratings scores associated with historical reputation from centralized services in order to faciliatate portability and uniformity of ratings and reviews.
+To solve the Ratings & Reviews data portability issue this specification outlines three core items that must be addressed by Decentralized Ratings & Reviews systems - Ownership, Portability and Verifiability.
+In addition, Decentralized Ratings & Reviews implementations should be <a href="#permissionless">Permissionless</a>, offer <a href="#decentralizedstorage">Decentralized Storage</a> and conform to the <a href="#datamodel">Decentralized Ratings & Reviews Data Model</a> outlined in this specification. The Decentralized Ratings & Reviews Data Model normalizes the ratings scores associated with historical Ratings & Reviews from centralized services in order to faciliatate portability and uniformity of ratings and reviews.
 </p>
 <p>
-<b>Reputation Verifiability</b>
+<b>Ratings & Reviews Verifiability</b>
 </p>
 <p>
-In addition to addressing the major issue of reputation ownership and portability, Decentralized Reputation also aims to address the significant problem of reputation verifiablility - tackling fake ratings and reviews. Online ratings and reviews have a long history of manipulation and with continued well documented, widespread gaming/manipulation on all of the major online marketplaces.
+In addition to addressing the major issue of Ratings & Reviews ownership and portability, Decentralized Ratings & Reviews also aims to address the significant problem of Ratings & Reviews verifiablility - tackling fake ratings and reviews. Online ratings and reviews have a long history of manipulation and with continued well documented, widespread gaming/manipulation on all of the major online marketplaces.
 <sub><a href="http://fortune.com/2017/12/10/tripadvisor-london-shed-fake-restaurant/">1</a></sub>
 <sub><a href="https://www.marketwatch.com/story/20-of-yelp-reviews-are-fake-2013-09-24">2</a></sub>
 <sub><a href="http://www.bbc.com/news/technology-43907695">3</a></sub>
@@ -163,8 +163,8 @@ The issue is so important to online commercial success that it has spawned an en
 This complexity means there is no simple solve, and associated well known researched problems such as <a href="https://en.wikipedia.org/wiki/Sybil_attack">Sybill Attacks</a> exist.
 </p>
 <p>
-Decentralized Reputation approaches the problem by creating an open extensible standard, enabling different forms of proofs of verifiability to be associated with a specific rating and review.
-Verifiability is not a hard requirement for every rating and review in Decentralized Reputation, but in the case when it is, the method or methods of verifiability are listed.
+Decentralized Ratings & Reviews approaches the problem by creating an open extensible standard, enabling different forms of proofs of verifiability to be associated with a specific rating and review.
+Verifiability is not a hard requirement for every rating and review in Decentralized Ratings & Reviews, but in the case when it is, the method or methods of verifiability are listed.
 Current forms of or weightings towards verifiable review proof include:
 
 <ul>
@@ -172,8 +172,8 @@ Current forms of or weightings towards verifiable review proof include:
   <li>Proof by payment amount</li>
   <li>Proof by review text analysis</li>
   <li>Proof by reviewer location</li>
-  <li>Proof by reviewer historical reputation</li>
-  <li>Proof by reviewee historical reputation</li>
+  <li>Proof by reviewer historical Ratings & Reviews</li>
+  <li>Proof by reviewee historical Ratings & Reviews</li>
   <li>Proof by community consensus</li>
 </ul>
 
@@ -186,8 +186,8 @@ Current forms of or weightings towards verifiable review proof include:
 <h1>Purpose of This Specification</h1>
 
 <p>
-The primary purpose of this specification is to define the conformance requirements for a Decentralized Reputation implementation.
-That includes both the Decentralized Reputation scheme and set of operations.
+The primary purpose of this specification is to define the conformance requirements for a Decentralized Ratings & Reviews implementation.
+That includes both the Decentralized Ratings & Reviews scheme and set of operations.
 </p>
 
 </section>
@@ -197,7 +197,7 @@ That includes both the Decentralized Reputation scheme and set of operations.
 <h2>Design Goals</h2>
 
 <p>
-This section summarizes the design goals and principles of Decentralized Reputation architecture.
+This section summarizes the design goals and principles of Decentralized Ratings & Reviews architecture.
 </p>
 
 <table class="simple">
@@ -214,7 +214,7 @@ This section summarizes the design goals and principles of Decentralized Reputat
 Decentralized Ownership
       </td>
       <td>
-        DR architecture should give entities, both human and non-human, the power to directly own and control their digital reputation without the need to rely on external authorities.
+        DRR architecture should give entities, both human and non-human, the power to directly own and control their digital Ratings & Reviews without the need to rely on external authorities.
       </td>
     </tr>
     <tr>
@@ -222,7 +222,7 @@ Decentralized Ownership
 Cryptographic Proof of Ownership
       </td>
       <td>
-DR architecture should enable an entity to provide cryptographic proof of authentication and proof of authorization rights.
+DRR architecture should enable an entity to provide cryptographic proof of authentication and proof of authorization rights.
       </td>
     </tr>
     <tr>
@@ -230,24 +230,24 @@ DR architecture should enable an entity to provide cryptographic proof of authen
 Decentralized Storage
       </td>
       <td>
-Decentralized Reputation architecture should eliminate the requirement for centralized authorities or single points of failure in reputation
-storage, including the creation, editing and deletion of conforming decentralized reputation instances and associated metadata.
+Decentralized Ratings & Reviews architecture should eliminate the requirement for centralized authorities or single points of failure in Ratings & Reviews
+storage, including the creation, editing and deletion of conforming decentralized Ratings & Reviews instances and associated metadata.
       </td>
     </tr>
     <tr>
       <td>
-Reputation Portability
+Ratings & Reviews Portability
       </td>
       <td>
-Decentralized Reputation should be system and network independent and should enable the portability of reputation from platform to platform, conforming to the normalized reputation schema outlined in this document.
+Decentralized Ratings & Reviews should be system and network independent and should enable the portability of Ratings & Reviews from platform to platform, conforming to the normalized Ratings & Reviews schema outlined in this document.
       </td>
     </tr>
     <tr>
       <td>
-Reputation Verifiability
+Ratings & Reviews Verifiability
       </td>
       <td>
-DR architecture should enable one or more methods of proof of verifiability of reputation.
+DRR architecture should enable one or more methods of proof of verifiability of Ratings & Reviews.
       </td>
     </tr>
     <tr>
@@ -255,7 +255,7 @@ DR architecture should enable one or more methods of proof of verifiability of r
 Extensibility
       </td>
       <td>
-When possible, DR architecture should enable extensibility provided it does not greatly hinder ownership, interoperability, portability, verifiability or
+When possible, DRR architecture should enable extensibility provided it does not greatly hinder ownership, interoperability, portability, verifiability or
 simplicity.
       </td>
     </tr>
@@ -268,7 +268,7 @@ simplicity.
 <h2>Simple Examples</h2>
 
 <p>
-This is a simple example of a Decentralized Identifier (DID) Document and associated Decentralized Reputation (DR) Document. The DID and DR are associated via the <a href="https://www.w3.org/TR/verifiable-claims-data-model">Verifiable Claims Model</a>
+This is a simple example of a Decentralized Identifier (DID) Document and associated Decentralized Ratings & Reviews (DRR) Document. The DID and DRR are associated via the <a href="https://www.w3.org/TR/verifiable-claims-data-model">Verifiable Claims Model</a>
 </p>
 
 <p>
@@ -296,10 +296,10 @@ Sample DID Document
   }
 </pre>
 <p>
-Sample Associated DR
+Sample Associated DRR
 </p>
 
-<pre class="example nohighlight" title="A simple example of an associated Decentralized Reputation (DR)">
+<pre class="example nohighlight" title="A simple example of an associated Decentralized Ratings & Reviews (DR)">
 "review": {
   "@context": [
     "http://schema.org/Review",
@@ -397,18 +397,18 @@ The Verifiable Claims data model specification provides the association mechanis
 
 <section>
 <h1>Core Specification Requirements</h1>
-<p>Decentralized Ownership, Portability and Verifiability are core elements of the Decentralized Reputation Specification</p>
-<h2>Decentralized Reputation Ownership</h2>
-  <p>Decentralized Reputation leverages the <a href="https://w3c-ccg.github.io/did-spec/">Decentralized Identifier</a> or DID specification and the associated <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a> model to move reptutation ownership from centralized large platforms to the reputation recipient.
+<p>Decentralized Ownership, Portability and Verifiability are core elements of the Decentralized Ratings & Reviews Specification</p>
+<h2>Decentralized Ratings & Reviews Ownership</h2>
+  <p>Decentralized Ratings & Reviews leverages the <a href="https://w3c-ccg.github.io/did-spec/">Decentralized Identifier</a> or DID specification and the associated <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Claims</a> model to move reptutation ownership from centralized large platforms to the Ratings & Reviews recipient.
   Rather than focusing on building a new decentralized identity mechanism, the DR specification leverages the current defacto decentralized identity management system today - the DID model. However, in the future, additional identity management systems may be added.</p>
   <section>
-    <h3>Decentralized Reptuation and DIDs</h3>
+    <h3>Decentralized Ratings & Reviews and DIDs</h3>
     <p>To be COMPLETED</p>
   </section>
   <section>
-    <h3>Decentralized Reputation and DID Association via Verifiable Claims</h3>
+    <h3>Decentralized Ratings & Reviews and DID Association via Verifiable Claims</h3>
     <p>
-      Decentralized Reputation leverages the <a href="https://w3c.github.io/vctf/">verifiable claims</a> model to associate to a DID subject.
+      Decentralized Ratings & Reviews leverages the <a href="https://w3c.github.io/vctf/">verifiable claims</a> model to associate to a DID subject.
       To do....
     </p>
   </section>
@@ -418,20 +418,20 @@ The Verifiable Claims data model specification provides the association mechanis
   </section>
 
 <section>
-  <h2>Decentralized Reputation Portability</h2>
-  <p>Decentralized Reputation leverages decentralized storage and normalized ratings and reviews to facilitate reputation portability.</p>
+  <h2>Decentralized Ratings & Reviews Portability</h2>
+  <p>Decentralized Ratings & Reviews leverages decentralized storage and normalized ratings and reviews to facilitate Ratings & Reviews portability.</p>
   <section>
-    <h3>Decentralized Reptuation Storage</h3>
-    <p>Decentralized storage should eliminate the requirement for centralized authorities or single points of failure in reputation
-    storage, including, but not limited to, the creation, editing and deletion of conforming decentralized reputation instances and associated metadata. In addition, decentralized storage should facilitate automatic encryption and replication of reputation data.
-    All candidate implementation systems of Decentralized Reputation should provide decentralized storage implementations that deliver these requirements.
+    <h3>Decentralized Ratings & Reviews Storage</h3>
+    <p>Decentralized storage should eliminate the requirement for centralized authorities or single points of failure in Ratings & Reviews
+    storage, including, but not limited to, the creation, editing and deletion of conforming decentralized Ratings & Reviews instances and associated metadata. In addition, decentralized storage should facilitate automatic encryption and replication of Ratings & Reviews data.
+    All candidate implementation systems of Decentralized Ratings & Reviews should provide decentralized storage implementations that deliver these requirements.
     Potential example decentralized storage implementation technologies could include, but are not limited to, <a href="https://en.wikipedia.org/wiki/Distributed_ledger">Distributed Ledger Technologies</a>, encrypted <a href="https://en.wikipedia.org/wiki/Clustered_file_system#Distributed_file_systems">distributed file systems</a> such as <a href="https://en.wikipedia.org/wiki/InterPlanetary_File_System">IPFS</a> etc</p>
   </section>
   <section>
-    <h3>Decentralized Reptuation Normalization</h3>
+    <h3>Decentralized Ratings & Reviews Normalization</h3>
     <p>
-    For the broadest interoperability, Decentralized Reputation normalization should be as simple
-    and universal as possible. This section summarizes the properties associated with the normalized Decentralized Reputation specification, designed to standardize and simplify the way decentralized reputation is rendered online.
+    For the broadest interoperability, Decentralized Ratings & Reviews normalization should be as simple
+    and universal as possible. This section summarizes the properties associated with the normalized Decentralized Ratings & Reviews specification, designed to standardize and simplify the way decentralized Ratings & Reviews is rendered online.
     </p>
     <p>
     The specification builds on the <a href="http://schema.org/Review">Review</a> work outlined in this area on Schema.org. The following fields are fields in addition to those listed in <a href="http://schema.org/Review">Review</a> object or where the property requirement types are created.
@@ -656,8 +656,8 @@ The Verifiable Claims data model specification provides the association mechanis
 </section>
 
 <section>
-  <h2>Decentralized Reputation Verification</h2>
-  <p>Decentralized Reputation verification is the Decentralized Storage and normalized ratings and reviews to facilitate reputation portability.</p>
+  <h2>Decentralized Ratings & Reviews Verification</h2>
+  <p>Decentralized Ratings & Reviews verification is the Decentralized Storage and normalized ratings and reviews to facilitate Ratings & Reviews portability.</p>
   <section>
     <h3>Verification Strategy</h3>
     <p>
@@ -683,11 +683,11 @@ The Verifiable Claims data model specification provides the association mechanis
     </p>
   </section>
   <section>
-    <h3>Proof via Reviewer Historical Reputation (Optional)</h3>
+    <h3>Proof via Reviewer Historical Ratings & Reviews (Optional)</h3>
     <p>To be COMPLETED</p>
   </section>
   <section>
-    <h3>Proof via Reviewee Historical Reputation (Optional)</h3>
+    <h3>Proof via Reviewee Historical Ratings & Reviews (Optional)</h3>
     <p>To be COMPLETED</p>
   </section>
   <section>
