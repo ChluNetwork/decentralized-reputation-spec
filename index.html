@@ -300,58 +300,47 @@ Sample Associated DR
 </p>
 
 <pre class="example nohighlight" title="A simple example of an associated Decentralized Reputation (DR)">
-"review": {
-  "@context": [
-    "http://schema.org/Review",
-    "http://schema.org/Rating",
-    "https://w3id.org/security/v1"
-  ],
-  "@id": "https://chlu.io/reviews/123456",
-  "type": ["Credential", "Review"],
-  "issuer": "did:chlu:issuer_did",
-  "issued": "2010-01-01",
-  "claim" : {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-    "ReviewBody": "Excellent work delivered by Alice. Was quick to respond and communicated really well.",
-    "ReviewRating" {
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingValue": 4,
+{
+  "subject": {
+    "name": "Carol Customer",
+    "address": "Street Address ABC City",
+    "telephone": "9898118981",
+    "categories":  ["category1", "category2"],
+    "location": {
+      "lat": "118.000",
+      "lng": "22.00"
     },
-    "ReviewDetails": [
-      {
-        "ReviewBody": "Lorem ipsum",
-        "additionalType": "Skills",
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingValue": 4
-      },
-      {
-        "ReviewBody": "Lorem ipsum",
-        "additionalType": "Communication",
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingValue": 4
-      },
-      {
-        "ReviewBody": "Lorem ipsum",
-        "additionalType": "Availability",
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingValue": 4
-      }
-    ]
+    "url": "https://businessdomainname.com"
   },
-  "signature": {
-    "type": "LinkedDataSignature2015",
-    "created": "2016-06-18T21:19:10Z",
-    "creator": "https://example.com/jdoe/keys/1",
-    "domain": "json-ld.org",
-    "nonce": "598c63d6",
-    "signatureValue": "BavEll0/I1zpYw8XNi1bgVg/sCneO4Jugez8RwDg/+
-    MCRVpjOboDoe4SxxKjkCOvKiCHGDvc4krqi6Z1n0UfqzxGfmatCuFibcC1wps
-    PRdW+gGsutPTLzvueMWmFhwYmfIFpbBu95t501+rSLHIEuujM/+PXr9Cky6Ed
-    +W3JT24="
+  "platform": {
+    "name": "platformname",
+    "url": "platform.com",
+    "subject_url": "businessprofileurlonplatform.platform.com"
+  },
+  "author": {
+    "name": "Rob Reviewer"
+  },
+  "review": {
+    "date_published": "01/25/2018",
+    "url": "platform.com/reviewurlonplatform",
+    "title": "Title if any",
+    "text": "review text if any"
+  },
+  "rating": {
+    "min": 0,
+    "value": 4,
+    "max": 5
+  },
+  "verifiable": "true",
+  "proof": {
+    "signature": {
+      "type": "LinkedDataSignature2015",
+      "created": "2016-06-18T21:19:10Z",
+      "creator": "https://example.com/jdoe/keys/1",
+      "domain": "chlu.io",
+      "nonce": "598c63d6",
+      "signatureValue": "BavEll0/I1zpYw8XNi1bgVg/sCneO4Jugez8RwD...==W3JT2"
+    }
   }
 }
 </pre>
