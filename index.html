@@ -300,58 +300,68 @@ Sample Associated DR
 </p>
 
 <pre class="example nohighlight" title="A simple example of an associated Decentralized Reputation (DR)">
-"review": {
-  "@context": [
-    "http://schema.org/Review",
-    "http://schema.org/Rating",
-    "https://w3id.org/security/v1"
-  ],
-  "@id": "https://chlu.io/reviews/123456",
-  "type": ["Credential", "Review"],
-  "issuer": "did:chlu:issuer_did",
-  "issued": "2010-01-01",
-  "claim" : {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21"
-    "ReviewBody": "Excellent work delivered by Alice. Was quick to respond and communicated really well.",
-    "ReviewRating" {
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingValue": 4,
+{
+  "id": "https://chlu.io/reviews/123456",
+  "issued": "2018-05-25T21:19:10Z",
+  "issuer": "did:chlu:ebfeb1f712ebc6f1c276e12ec21",
+  "subject": {
+    "did": "did:chlu:138aae15ec44b1832fdfbab064e91505ae7047cb",
+    "name": "Victor Vendor",
+    "address": "W1A1AA, London, UK",
+    "telephone": "001 171 1717 717",
+    "categories": ["chinese", "restaurant", "asian"],
+    "location": {
+      "lat": "118.100",
+      "lng": "72.200"
     },
-    "ReviewDetails": [
-      {
-        "ReviewBody": "Lorem ipsum",
-        "additionalType": "Skills",
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingValue": 4
-      },
-      {
-        "ReviewBody": "Lorem ipsum",
-        "additionalType": "Communication",
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingValue": 4
-      },
-      {
-        "ReviewBody": "Lorem ipsum",
-        "additionalType": "Availability",
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingValue": 4
-      }
-    ]
+    "url": "https://restaurant.com"
   },
+  "platform": {
+    "name": "yelp",
+    "url": "yelp.com",
+    "subject_url": "https://yelp.com/path_to_restaurant"
+  },
+  "author": {
+    "name": "Carol Customer"
+  },
+  "review": {
+    "date_published": "2018-05-25T21:19:10Z",
+    "url": "https://yelp.com/path_to_review/details",
+    "title": "Excellent food and service",
+    "text": "Enjoyed the entire evening. The service was outstanding, and food exceptional"
+  },
+  "rating": {
+    "min": 1,
+    "value": 5,
+    "max": 5
+  },
+  "detailed_review": [
+    {
+      "rating": {
+        "min": 0,
+        "value": 5,
+        "max": 5
+      },
+      "review": "The soups and stir fry we got were just perfectly done.",
+      "category": "Food"
+    },
+    {
+      "rating": {
+        "min": 0,
+        "value": 5,
+        "max": 5
+      },
+      "review": "Pleasant staff. Helpful and prompt.",
+      "category": "Service"
+    },
+  ],
+  "verifiable": true,
   "signature": {
     "type": "LinkedDataSignature2015",
-    "created": "2016-06-18T21:19:10Z",
-    "creator": "https://example.com/jdoe/keys/1",
-    "domain": "json-ld.org",
+    "created": "2018-05-25T21:19:10Z",
+    "creator": "did:chlu:ebfeb1f712ebc6f1c276e12ec21#keys-1",
     "nonce": "598c63d6",
-    "signatureValue": "BavEll0/I1zpYw8XNi1bgVg/sCneO4Jugez8RwDg/+
-    MCRVpjOboDoe4SxxKjkCOvKiCHGDvc4krqi6Z1n0UfqzxGfmatCuFibcC1wps
-    PRdW+gGsutPTLzvueMWmFhwYmfIFpbBu95t501+rSLHIEuujM/+PXr9Cky6Ed
-    +W3JT24="
+    "signatureValue": "BavEll0/I1zpYw8XNi1bgVg...sCneO4J="
   }
 }
 </pre>
@@ -445,26 +455,69 @@ The Verifiable Claims data model specification provides the association mechanis
       </thead>
 
       <tbody>
+
         <tr>
           <td>
-            Reviewee DID
+            id
           </td>
           <td>
-            DID associated with the recipient of the review.
+            The identifier of the review. Can be the URI for where the review is available.
           </td>
           <td>
-            String in the DID format
+            URI
           </td>
           <td>
-            No
+            Yes
           </td>
         </tr>
         <tr>
           <td>
-            Reviewee Name
+            issued
           </td>
           <td>
-            Name of the reviewee (individual or business).
+            The timestamp of when the review was issued on the decentralised repository
+          </td>
+          <td>
+            DateTime
+          </td>
+          <td>
+            Yes
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Issuer
+          </td>
+          <td>
+            The DID of the service, platform, entity that made this review availabe on decentralised repository
+          </td>
+          <td>
+            DID
+          </td>
+          <td>
+            Yes
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Subject DID
+          </td>
+          <td>
+            The DID of the subject, i.e. the entity receiving the review
+          </td>
+          <td>
+            DID
+          </td>
+          <td>
+            Yes
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Subject Name
+          </td>
+          <td>
+            Name of the subject entity
           </td>
           <td>
             String
@@ -475,24 +528,10 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Reviewer DID
+            Subject Address
           </td>
           <td>
-            DID associated with the provider of the review.
-          </td>
-          <td>
-            String in the DID format
-          </td>
-          <td>
-            No
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Reviewer Name
-          </td>
-          <td>
-            Name of the reviewer (individual or business).
+            Address of the subject entity
           </td>
           <td>
             String
@@ -503,27 +542,13 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Reviewee Category
+            Subject Telephone
           </td>
           <td>
-            Category of reviewee service provider
+            Telephone number of the subject entity
           </td>
           <td>
-            String from defined list
-          </td>
-          <td>
-            No
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Reviewee Sub-Category
-          </td>
-          <td>
-            Sub-category of reviewee service provider
-          </td>
-          <td>
-            String from defined list
+            String
           </td>
           <td>
             No
@@ -531,10 +556,136 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Source Platform
+            Subject Categories
           </td>
           <td>
-            Platform on which the review orginated
+            Categories that subject entity identifies itself with
+          </td>
+          <td>
+            List of Strings
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Subject Location
+          </td>
+          <td>
+            Latitude and Longitude of where the subject entity can be found
+          </td>
+          <td>
+            Pair of strings
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            URL
+          </td>
+          <td>
+            The URL of the primary source of information about the subject. E.g. the subject's website.
+          </td>
+          <td>
+            URL
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Platform Name
+          </td>
+          <td>
+            The name of the platform where the review was received by the entity
+          </td>
+          <td>
+            String
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Platform URL
+          </td>
+          <td>
+            The URL where information is available about the platform
+          </td>
+          <td>
+            URL
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Platform Subject URL
+          </td>
+          <td>
+            The URL where information about the subject can be found on the platform
+          </td>
+          <td>
+            URL
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Author Name
+          </td>
+          <td>
+            The Name of the entity that created the review
+          </td>
+          <td>
+            String
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Author Platform URL
+          </td>
+          <td>
+            The URL where more information can be found about the Author on the platform
+          </td>
+          <td>
+            URL
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Review Date Published
+          </td>
+          <td>
+            The timestamp when the reivew was published on the platform. Note, this is different from "issued"
+          </td>
+          <td>
+            DateTime
+          </td>
+          <td>
+            Yes
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Review URL
+          </td>
+          <td>
+            The URL where the review is available on the platform
           </td>
           <td>
             URL
@@ -545,41 +696,83 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Date Created
+            Review Title
           </td>
           <td>
-            When the review was created
+            The title associated with the review, if the platform supports it
           </td>
           <td>
-            <a href="http://www.schema.org/Date">Date</a> or <a href="http://www.schema.org/DateTime">Date Time</a>
+            String
           </td>
           <td>
-            Yes
-          </td>
-        </tr>
-        <tr>
-          <td>
-            ReviewRating
-          </td>
-          <td>
-            Score on a normalized 5 point scale
-          </td>
-          <td>
-            <a href="http://www.schema.org/ReviewRating">ReviewRating</a>
-          </td>
-          <td>
-            Yes
+            No
           </td>
         </tr>
         <tr>
           <td>
-            Review Body
+            Review Text
           </td>
           <td>
-            Text overview of the review
+            The review text description
           </td>
           <td>
-            <a href="http://www.schema.org/ReviewRating">ReviewBody</a>
+            String
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rating Min
+          </td>
+          <td>
+            The minimum value of ratings on the platform where the review is from
+          </td>
+          <td>
+            Integer
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rating Value
+          </td>
+          <td>
+            The value of rating associated with this review
+          </td>
+          <td>
+            Integer
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rating Max
+          </td>
+          <td>
+            The maximum value of ratings on the platform where the review is from
+          </td>
+          <td>
+            Integer
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Detailed Reviews
+          </td>
+          <td>
+            A list of "Detailed Review". Includes category, review and rating. See next table.
+          </td>
+          <td>
+            JSON
           </td>
           <td>
             No
@@ -590,7 +783,7 @@ The Verifiable Claims data model specification provides the association mechanis
             Verifiable
           </td>
           <td>
-            Is this rating/review verifiable by at least one spec accepted method.
+            Flag if the review is independently verifiable or not.
           </td>
           <td>
             Boolean
@@ -601,13 +794,13 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Verifiable Method
+            Verification Method
           </td>
           <td>
-            Is this rating/review verifiable by at least one method.
+            Identifies the method used for verifying the review
           </td>
           <td>
-            List of proof types and proof sources
+            String
           </td>
           <td>
             No
@@ -618,10 +811,112 @@ The Verifiable Claims data model specification provides the association mechanis
             Verification Provider
           </td>
           <td>
-            What implementation provider verified this review/rating
+            The platform/system/protocol that provides verification method
           </td>
           <td>
-            URL to verification provider
+            String
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Signature
+          </td>
+          <td>
+            Signature to verify the issuer has provided this review on decentralised repository
+          </td>
+          <td>
+            JSON
+          </td>
+          <td>
+            Yes
+          </td>
+        </tr>        
+      </tbody>
+    </table>
+
+    Detailed Review JSON properties
+    
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Description</th>
+          <th>Data Type</th>
+          <th>Required</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>
+            Rating Min
+          </td>
+          <td>
+            The minimum value of ratings on the platform where the review is from
+          </td>
+          <td>
+            Integer
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rating Value
+          </td>
+          <td>
+            The value of rating associated with this review
+          </td>
+          <td>
+            Integer
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rating Max
+          </td>
+          <td>
+            The maximum value of ratings on the platform where the review is from
+          </td>
+          <td>
+            Integer
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Review
+          </td>
+          <td>
+            Text overview of the review for the category
+          </td>
+          <td>
+            String
+          </td>
+          <td>
+            No
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Category
+          </td>
+          <td>
+            The category of the detailed review
+          </td>
+          <td>
+            String
           </td>
           <td>
             No
@@ -629,7 +924,6 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
       </tbody>
     </table>
-
 
   </section>
   <section>
