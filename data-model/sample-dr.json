@@ -55,8 +55,23 @@
     },
   ],
   "verifiable": true,
-  "verification_method": "VerifiedByPaymentRequest",
-  "verification_provider": "Chlu",
+  "verification": [
+     {
+       "method": "ConfirmedPayment",
+       "provider": "https://chlu.io"
+     },
+    {
+      "method": "ReviewerHistoricalReputation",
+      "provider": "https://example.com",
+      "proof": {
+        "type": "LinkedDataSignature2015",
+        "created": "2018-05-24T22:20:00Z",
+        "creator": "did:example:8e95e8ccac6c8eb91b8a7a8f02bca2fa2268d4b2:#keys-1",
+        "nonce": "1b0d65",
+        "signatureValue": "722551b39bcc478810d...5fe81="
+      }
+    }
+  ]
   "signature": {
     "type": "LinkedDataSignature2015",
     "created": "2018-05-25T21:19:10Z",

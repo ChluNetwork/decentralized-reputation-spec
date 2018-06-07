@@ -322,7 +322,8 @@ Sample Associated DR
     "subject_url": "https://yelp.com/path_to_restaurant"
   },
   "author": {
-    "name": "Carol Customer"
+    "name": "Carol Customer",
+    "platform_url": "https://yelp.com/reviewers/carol"
   },
   "review": {
     "date_published": "2018-05-25T21:19:10Z",
@@ -356,6 +357,23 @@ Sample Associated DR
     },
   ],
   "verifiable": true,
+  "verification": [
+     {
+       "method": "ConfirmedPayment",
+       "provider": "https://chlu.io"
+     },
+    {
+      "method": "ReviewerHistoricalReputation",
+      "provider": "https://example.com",
+      "proof": {
+        "type": "LinkedDataSignature2015",
+        "created": "2018-05-24T22:20:00Z",
+        "creator": "did:example:8e95e8ccac6c8eb91b8a7a8f02bca2fa2268d4b2:#keys-1",
+        "nonce": "1b0d65",
+        "signatureValue": "722551b39bcc478810d...5fe81="
+      }
+    }
+  ]
   "signature": {
     "type": "LinkedDataSignature2015",
     "created": "2018-05-25T21:19:10Z",
@@ -794,30 +812,16 @@ The Verifiable Claims data model specification provides the association mechanis
         </tr>
         <tr>
           <td>
-            Verification Method
+            Verification
           </td>
           <td>
-            Identifies the method used for verifying the review
+            An array of various verification methods available to verify this decentralised review
           </td>
           <td>
-            String
+            Array of JSON objects. See Verification Methods table
           </td>
           <td>
-            No
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Verification Provider
-          </td>
-          <td>
-            The platform/system/protocol that provides verification method
-          </td>
-          <td>
-            String
-          </td>
-          <td>
-            No
+            Yes. The array should have at least one object
           </td>
         </tr>
         <tr>
@@ -837,9 +841,9 @@ The Verifiable Claims data model specification provides the association mechanis
       </tbody>
     </table>
 
-    Detailed Review JSON properties
-    
-    <table class="simple">
+    <section>
+      <h4>Verification Methods</h4>
+        <table class="simple">
       <thead>
         <tr>
           <th>Property</th>
@@ -850,55 +854,40 @@ The Verifiable Claims data model specification provides the association mechanis
       </thead>
 
       <tbody>
-
         <tr>
           <td>
-            Rating Min
+            Verification Method
           </td>
           <td>
-            The minimum value of ratings on the platform where the review is from
+            Identifies the method used for verifying the review
           </td>
           <td>
-            Integer
+            String
           </td>
           <td>
-            No
+            Yes
           </td>
         </tr>
         <tr>
           <td>
-            Rating Value
+            Verification Provider
           </td>
           <td>
-            The value of rating associated with this review
+            The platform/system/protocol that provides verification method
           </td>
           <td>
-            Integer
+            String
           </td>
           <td>
-            No
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Rating Max
-          </td>
-          <td>
-            The maximum value of ratings on the platform where the review is from
-          </td>
-          <td>
-            Integer
-          </td>
-          <td>
-            No
+            Yes
           </td>
         </tr>
         <tr>
           <td>
-            Review
+            Verification Proof
           </td>
           <td>
-            Text overview of the review for the category
+            A signature by a the verification provider's key
           </td>
           <td>
             String
@@ -907,24 +896,100 @@ The Verifiable Claims data model specification provides the association mechanis
             No
           </td>
         </tr>
-
-        <tr>
-          <td>
-            Category
-          </td>
-          <td>
-            The category of the detailed review
-          </td>
-          <td>
-            String
-          </td>
-          <td>
-            No
-          </td>
-        </tr>
+        
       </tbody>
-    </table>
+        </table>
+    </section>
+    
+    <section>
+      <h4>Detailed Review JSON properties</h4>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Data Type</th>
+            <th>Required</th>
+          </tr>
+        </thead>
 
+        <tbody>
+
+          <tr>
+            <td>
+              Rating Min
+            </td>
+            <td>
+              The minimum value of ratings on the platform where the review is from
+            </td>
+            <td>
+              Integer
+            </td>
+            <td>
+              No
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Rating Value
+            </td>
+            <td>
+              The value of rating associated with this review
+            </td>
+            <td>
+              Integer
+            </td>
+            <td>
+              No
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Rating Max
+            </td>
+            <td>
+              The maximum value of ratings on the platform where the review is from
+            </td>
+            <td>
+              Integer
+            </td>
+            <td>
+              No
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Review
+            </td>
+            <td>
+              Text overview of the review for the category
+            </td>
+            <td>
+              String
+            </td>
+            <td>
+              No
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Category
+            </td>
+            <td>
+              The category of the detailed review
+            </td>
+            <td>
+              String
+            </td>
+            <td>
+              No
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
   </section>
   <section>
     <h3>Simple Examples</h3>
